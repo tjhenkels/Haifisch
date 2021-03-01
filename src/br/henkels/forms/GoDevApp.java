@@ -77,7 +77,7 @@ public class GoDevApp {
 		ButtonTelaCadastroSaladeAula = new JButton("Sala de Aula");
 		ButtonTelaCadastroSaladeAula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadSalaAula tela = new TelaCadSalaAula();
+				TelaCadSalaAula tela = new TelaCadSalaAula(gerenciador);
 				tela.setModal(true);
 				tela.setVisible(true);
 
@@ -89,7 +89,7 @@ public class GoDevApp {
 		JButton btnNewButton = new JButton("Sala de Caf\u00E9");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadSalaCafe tela = new TelaCadSalaCafe();
+				TelaCadSalaCafe tela = new TelaCadSalaCafe(gerenciador);
 				tela.setModal(true);
 				tela.setVisible(true);
 			}

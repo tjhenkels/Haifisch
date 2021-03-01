@@ -28,8 +28,10 @@ public class Store {
 	}
 
 	private static final String[] COMANDOS = new String[] { //
-			"create table alunos (id_aluno int IDENTITY(1,1) primary key,nome varchar(25), sobrenome varchar(25))  ", //
-			// "Mercedes"//
+			"create table alunos (id_aluno int identity(1,1) primary key,nome varchar(25), sobrenome varchar(25))  ", //
+			"create table salaaula (id_salaaula int identity(1,1) primary key,nome varchar(25), lotacao int)  ", //
+			"create table salacafe (id_salacafe int identity(1,1) primary key,nome varchar(25), lotacao int)  ", //
+			
 	};
 
 	private void criaTabelas() {
@@ -71,5 +73,33 @@ public class Store {
 
 		}
 
+	}
+
+	public void saveSalaAula(String nome, int lotacao) {
+		try (PreparedStatement stmt = conn.prepareStatement("insert into salaAula(nome, lotacao) values (?, ?)");) {
+			stmt.setString(1, nome);
+			stmt.setInt(2,lotacao);
+			stmt.execute();
+		}
+		// Handle any errors that may have occurred.
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		
+	}
+
+	public void saveSalaCafe(String nome, int lotacao) {
+		try (PreparedStatement stmt = conn.prepareStatement("insert into salaCafe(nome, lotacao) values (?, ?)");) {
+			stmt.setString(1, nome);
+			stmt.setInt(2,lotacao);
+			stmt.execute();
+		}
+		// Handle any errors that may have occurred.
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		
 	}
 }

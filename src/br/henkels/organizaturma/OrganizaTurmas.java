@@ -16,4 +16,14 @@ public class OrganizaTurmas {
 		
 	}
 
+	public void saveSalaAula(String nome, int lotacao) {
+		store.saveSalaAula(nome,lotacao);
+		
+	}
+
+	public void saveSalaCafe(String nome, int lotacao) {
+		store.saveSalaCafe(nome, lotacao);
+		
+	}
+
 }
