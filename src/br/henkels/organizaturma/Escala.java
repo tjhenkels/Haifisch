@@ -1,6 +1,7 @@
 package br.henkels.organizaturma;
 
 public class Escala {
+
 	public Escala(int codigoAluno, int salaturno1, int salacafe, int salaturno2) {
 		super();
 		this.codigoAluno = codigoAluno;
@@ -14,4 +15,9 @@ public class Escala {
 	public final int salacafe;
 	public final int salaturno2;
 
+	@Override
+	public String toString() {
+		return "Escala [codigoAluno=" + codigoAluno + ", salaturno1=" + salaturno1 + ", salacafe=" + salacafe
+				+ ", salaturno2=" + salaturno2 + "]";
+	}
 }

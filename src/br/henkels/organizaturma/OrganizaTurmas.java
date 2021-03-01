@@ -40,7 +40,30 @@ public class OrganizaTurmas {
 
 	public static List<Escala> geraEscalas(List<Aluno> alunos, List<Sala> salasAula, List<Sala> salasCafe) {
 		List<Escala> ret = new ArrayList<>();
+		if (salasAula.size() > 0 || salasCafe.size() > 0) {
 
+			int metadeAlunos = alunos.size() / 2;
+			for (int i = 0; i < alunos.size(); i++) {
+				Aluno aluno = alunos.get(i);
+				int codigoAluno = aluno.codigo;
+				Sala sala = salasAula.get(i % salasAula.size());
+				int salaturno1 = sala.codigo;
+
+				sala = salasCafe.get(i % salasCafe.size());
+				int salacafe = sala.codigo;
+
+				int ii = i;
+				if (ii > metadeAlunos) {
+					ii++;
+				}
+				sala = salasAula.get(ii % salasAula.size());
+				int salaturno2 = sala.codigo;
+
+				Escala escala = new Escala(codigoAluno, salaturno1, salacafe, salaturno2);
+				ret.add(escala);
+			}
+
+		}
 		return ret;
 
 	}
